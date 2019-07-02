@@ -7,6 +7,7 @@ import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -25,8 +26,11 @@ import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import edu.mit.blocks.renderable.RenderableBlock;
+
 import com.ardublock.core.Context;
 import com.ardublock.ui.listener.ArdublockWorkspaceListener;
+import com.ardublock.ui.listener.DeleteButtonListener;
 import com.ardublock.ui.listener.GenerateCodeButtonListener;
 import com.ardublock.ui.listener.NewButtonListener;
 import com.ardublock.ui.listener.OpenButtonListener;
@@ -35,7 +39,7 @@ import com.ardublock.ui.listener.SaveAsButtonListener;
 import com.ardublock.ui.listener.SaveButtonListener;
 
 import edu.mit.blocks.controller.WorkspaceController;
-import edu.mit.blocks.workspace.Workspace;
+import edu.mit.blocks.workspace.Workspace; 
 
 
 public class OpenblocksFrame extends JFrame
@@ -68,13 +72,17 @@ public class OpenblocksFrame extends JFrame
 	}
 	
 	public OpenblocksFrame()
-	{
+	{	
+		
+		//Makes sure the size fits to any screen
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		context = Context.getContext();
 		this.setTitle(makeFrameTitle());
-		this.setSize(new Dimension(1024, 760));
+		this.setSize(new Dimension(screenSize.width - 400, screenSize.height - 40));
 		this.setLayout(new BorderLayout());
 		//put the frame to the center of screen
 		this.setLocationRelativeTo(null);
+	
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		uiMessageBundle = ResourceBundle.getBundle("com/ardublock/block/ardublock");
@@ -101,24 +109,43 @@ public class OpenblocksFrame extends JFrame
 		// WTF I can't add worksapcelistener by workspace contrller
 		workspace.addWorkspaceListener(new ArdublockWorkspaceListener(this));
 		
+		//Code for the top panel 
 		JPanel buttons = new JPanel();
+		buttons.setBackground(Color.decode("#ff6666"));
+		
 		buttons.setLayout(new FlowLayout());
 		JButton newButton = new JButton(uiMessageBundle.getString("ardublock.ui.new"));
 		newButton.addActionListener(new NewButtonListener(this));
+		newButton.setBackground(Color.decode("#FFFFFF"));
+		
 		JButton saveButton = new JButton(uiMessageBundle.getString("ardublock.ui.save"));
 		saveButton.addActionListener(new SaveButtonListener(this));
+		saveButton.setBackground(Color.decode("#FFFFFF"));
+		
 		JButton saveAsButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveAs"));
-		saveAsButton.addActionListener(new SaveAsButtonListener(this));
+		saveAsButton.addActionListener(new SaveAsButtonListener(this)); 
+		saveAsButton.setBackground(Color.decode("#FFFFFF"));
+		
 		JButton openButton = new JButton(uiMessageBundle.getString("ardublock.ui.load"));
 		openButton.addActionListener(new OpenButtonListener(this));
+		openButton.setBackground(Color.decode("#FFFFFF"));
+		
 		JButton generateButton = new JButton(uiMessageBundle.getString("ardublock.ui.upload"));
 		generateButton.addActionListener(new GenerateCodeButtonListener(this, context));
+		generateButton.setBackground(Color.decode("#FFFFFF"));
+		
+		JButton deleteButton = new JButton("Reset");
+		deleteButton.addActionListener(new DeleteButtonListener(this));
+		deleteButton.setBackground(Color.decode("#FFFFFF"));
+		
 		JButton serialMonitorButton = new JButton(uiMessageBundle.getString("ardublock.ui.serialMonitor"));
 		serialMonitorButton.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				context.getEditor().handleSerial();
 			}
 		});
+		serialMonitorButton.setBackground(Color.decode("#FFFFFF"));
+		
 		JButton saveImageButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveImage"));
 		saveImageButton.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
@@ -145,16 +172,20 @@ public class OpenblocksFrame extends JFrame
 				}
 			}
 		});
+		saveImageButton.setBackground(Color.decode("#FFFFFF"));
+		
 
 		buttons.add(newButton);
 		buttons.add(saveButton);
 		buttons.add(saveAsButton);
 		buttons.add(openButton);
 		buttons.add(generateButton);
+		//added delete button
+		buttons.add(deleteButton);
 		buttons.add(serialMonitorButton);
 
 		JPanel bottomPanel = new JPanel();
-		bottomPanel.setBackground(Color.black);
+		bottomPanel.setBackground(Color.decode("#ff6666"));
 		
 		JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website"));
 		websiteButton.addActionListener(new ActionListener () {
@@ -171,12 +202,15 @@ public class OpenblocksFrame extends JFrame
 			    }
 			}
 		});
+		websiteButton.setBackground(Color.decode("#FFFFFF"));
+		
 		JLabel versionLabel = new JLabel("v " + uiMessageBundle.getString("ardublock.ui.version"));
 		
 		bottomPanel.add(saveImageButton);
 		bottomPanel.add(websiteButton);
 		bottomPanel.add(versionLabel);
-
+		
+		
 		
 		this.add(buttons, BorderLayout.NORTH);
 		this.add(bottomPanel, BorderLayout.SOUTH);
@@ -270,6 +304,21 @@ public class OpenblocksFrame extends JFrame
 		
 		chooseFileAndSave(saveString);
 		
+	}
+	
+	public void doDelete() 
+	{
+		if (context.isWorkspaceEmpty()) {
+			return;
+		}
+		
+		else {
+			this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+			context.resetWorksapce();
+			context.setWorkspaceChanged(false);
+			this.setTitle(this.makeFrameTitle());
+			this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		}
 	}
 	
 	private void chooseFileAndSave(String ardublockString)

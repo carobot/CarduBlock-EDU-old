@@ -33,7 +33,7 @@ public class IrGetCodeBlock extends TranslatorBlock
 			"  }\n" + 
 			"}\n" + 
 			"void __ab_getIrCommand(char *receivedCommand)\n" + 
-			"{\n" + 
+			"{\n" +  
 			"  decode_results result;\n" + 
 			"  if (__ab_irrecv.decode(&result))\n" + 
 			"  {\n" + 

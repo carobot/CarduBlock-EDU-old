@@ -73,6 +73,12 @@ public class CarduBlockTool implements Tool, OpenblocksFrameListener
 		
 	}
 	
+	//Added for a delete button
+	public void didDelete() 
+	{
+		
+	}
+	
 	public void didGenerate(String source) {
 		//CarduBlockTool.editor.setText(source);
 		java.lang.reflect.Method method;

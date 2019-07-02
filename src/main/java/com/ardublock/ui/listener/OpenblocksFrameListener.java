@@ -5,5 +5,6 @@ public interface OpenblocksFrameListener {
 	public void didSave();
 	public void didSaveAs();
 	public void didLoad();	
+	public void didDelete();
 	public void didGenerate(String source);
 }

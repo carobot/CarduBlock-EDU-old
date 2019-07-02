@@ -1,5 +1,6 @@
 package com.ardublock;
 
+import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
@@ -35,6 +36,7 @@ public class Main
 		Context context = Context.getContext();
 		context.setInArduino(false);
 		openblocksFrame.setVisible(true);
+		
 	}
 
 	public void shutdown()
@@ -46,6 +48,7 @@ public class Main
 	private void startConsoleFrame()
 	{
 		ConsoleFrame consoleFrame = new ConsoleFrame();
+		
 		consoleFrame.setVisible(true);
 	}
 }

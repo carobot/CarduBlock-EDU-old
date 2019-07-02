@@ -1,5 +1,6 @@
 package com.ardublock.core;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,6 +33,8 @@ import edu.mit.blocks.workspace.FactoryManager;
 import edu.mit.blocks.workspace.Page;
 import edu.mit.blocks.workspace.Workspace;
 
+import edu.mit.blocks.workspace.TrashCan;
+
 public class Context
 {
 	public final static String LANG_DTD_PATH = "/com/ardublock/block/lang_def.dtd";
@@ -51,9 +54,11 @@ public class Context
 	private String arduinoVersionString = ARDUINO_VERSION_UNKNOWN;
 	private OsType osType; 
 
-	final public static String APP_NAME = "CarduBlock Edu";
+	final public static String APP_NAME = "CarduBlock- Edu V2";
 	
 	private Editor editor;
+	
+	
 	
 	public enum OsType
 	{
@@ -91,12 +96,15 @@ public class Context
 		workspaceController = new WorkspaceController();
 		resetWorksapce();
 		workspace = workspaceController.getWorkspace();
+		
 		workspaceChanged = false;
 		highlightBlockSet = new HashSet<RenderableBlock>();
 		ofls = new HashSet<OpenblocksFrameListener>();
 		this.workspace = workspaceController.getWorkspace();
-		
+		this.workspace.setForeground(Color.decode("#FFFFFF"));
 		isInArduino = false;
+		
+		
 		
 		osType = determineOsType();
 	}
@@ -252,6 +260,12 @@ public class Context
 		highlightBlockSet.remove(block);
 	}
 	
+//	public void undo() {
+//		
+//		workspaceController.resetWorkspace();
+//	}
+	
+	
 	public void resetHightlightBlock()
 	{
 		for (RenderableBlock rb : highlightBlockSet)
@@ -333,6 +347,14 @@ public class Context
 		for (OpenblocksFrameListener ofl : ofls)
 		{
 			ofl.didLoad();
+		}
+	}
+	
+	//Code needed to add a delete button
+	public void didDelete() {
+		for (OpenblocksFrameListener ofl : ofls)
+		{
+			ofl.didDelete();
 		}
 	}
 	

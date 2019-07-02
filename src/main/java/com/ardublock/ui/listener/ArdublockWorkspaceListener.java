@@ -1,5 +1,7 @@
 package com.ardublock.ui.listener;
 
+import java.awt.Color;
+
 import com.ardublock.core.Context;
 import com.ardublock.ui.OpenblocksFrame;
 
@@ -15,6 +17,7 @@ public class ArdublockWorkspaceListener implements WorkspaceListener
 	{
 		context = Context.getContext();
 		this.frame = frame;
+		
 	}
 	
 	public void workspaceEventOccurred(WorkspaceEvent event)
