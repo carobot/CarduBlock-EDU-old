@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE BlockLangDef SYSTEM "lang_def.dtd">
 <!-- This describes every BlockGenus, BlockDrawer, BlockFamilies in Starlogo-TNG. Note: For BlockGenus, if genus A relies on another genus B, that genus B must be specified in the xml 
 	file before genus A is specified./ We impose this requirement so that sanity checks can be made regarding the validity of a default argument when the BlockGenuses are first loaded. -->
@@ -2603,7 +2603,7 @@
 			</BlockConnectors>
 			<Images>
 				<Image>
-					<FileLocation>com/ardublock/block/carobot/Carobot_Motor.png</FileLocation>
+					<FileLocation>com/ardublock/block/carobot/Carobot_Motor_Backward.png</FileLocation>
 				</Image>
 			</Images>
 		</BlockGenus>
@@ -2620,7 +2620,7 @@
 			</BlockConnectors>
 			<Images>
 				<Image>
-					<FileLocation>com/ardublock/block/carobot/Carobot_Motor.png</FileLocation>
+					<FileLocation>com/ardublock/block/carobot/Carobot_Motor_Forward.png</FileLocation>
 				</Image>
 			</Images>
 		</BlockGenus>
