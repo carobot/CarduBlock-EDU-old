@@ -2658,7 +2658,7 @@
 			</BlockConnectors>
 			<Images>
 				<Image>
-					<FileLocation>com/ardublock/block/carobot/Carobot_Motor.png</FileLocation>
+					<FileLocation>com/ardublock/block/carobot/Carobot_Motor_Stop.png</FileLocation>
 				</Image>
 			</Images>
 		</BlockGenus>
