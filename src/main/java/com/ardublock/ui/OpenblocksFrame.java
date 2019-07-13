@@ -23,6 +23,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -116,37 +117,91 @@ public class OpenblocksFrame extends JFrame
 		buttons.setBackground(Color.decode("#ff6666"));
 		
 		buttons.setLayout(new FlowLayout());
-		JButton newButton = new JButton(uiMessageBundle.getString("ardublock.ui.new"));
+		final JButton newButton = new JButton(uiMessageBundle.getString("ardublock.ui.new"));
 		newButton.addActionListener(new NewButtonListener(this));
 		newButton.setBackground(Color.decode("#FFFFFF"));
 		newButton.setBorder(new RoundedBoarder(5));
+		newButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	newButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        newButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
-		JButton saveButton = new JButton(uiMessageBundle.getString("ardublock.ui.save"));
+		final JButton saveButton = new JButton(uiMessageBundle.getString("ardublock.ui.save"));
 		saveButton.addActionListener(new SaveButtonListener(this));
 		saveButton.setBackground(Color.decode("#FFFFFF"));
 		saveButton.setBorder(new RoundedBoarder(5));
+		saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	saveButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        saveButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
-		JButton saveAsButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveAs"));
+		final JButton saveAsButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveAs"));
 		saveAsButton.addActionListener(new SaveAsButtonListener(this)); 
 		saveAsButton.setBackground(Color.decode("#FFFFFF"));
 		saveAsButton.setBorder(new RoundedBoarder(5));
+		saveAsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	saveAsButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        saveAsButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
-		JButton openButton = new JButton(uiMessageBundle.getString("ardublock.ui.load"));
+		final JButton openButton = new JButton(uiMessageBundle.getString("ardublock.ui.load"));
 		openButton.addActionListener(new OpenButtonListener(this));
 		openButton.setBackground(Color.decode("#FFFFFF"));
 		openButton.setBorder(new RoundedBoarder(5));
+		openButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	openButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        openButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
-		JButton generateButton = new JButton(uiMessageBundle.getString("ardublock.ui.upload"));
+		final JButton generateButton = new JButton(uiMessageBundle.getString("ardublock.ui.upload"));
 		generateButton.addActionListener(new GenerateCodeButtonListener(this, context));
 		generateButton.setBackground(Color.decode("#FFFFFF"));
 		generateButton.setBorder(new RoundedBoarder(5));
+		generateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	generateButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        generateButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
-		JButton deleteButton = new JButton("Reset");
+		final JButton deleteButton = new JButton("Reset");
 		deleteButton.addActionListener(new DeleteButtonListener(this));
 		deleteButton.setBackground(Color.decode("#FFFFFF"));
 		deleteButton.setBorder(new RoundedBoarder(5));
+		deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	deleteButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        deleteButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
-		JButton serialMonitorButton = new JButton(uiMessageBundle.getString("ardublock.ui.serialMonitor"));
+		final JButton serialMonitorButton = new JButton(uiMessageBundle.getString("ardublock.ui.serialMonitor"));
 		serialMonitorButton.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				context.getEditor().handleSerial();
@@ -154,8 +209,17 @@ public class OpenblocksFrame extends JFrame
 		});
 		serialMonitorButton.setBackground(Color.decode("#FFFFFF"));
 		serialMonitorButton.setBorder(new RoundedBoarder(5));
+		serialMonitorButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	serialMonitorButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        serialMonitorButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
-		JButton saveImageButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveImage"));
+		final JButton saveImageButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveImage"));
 		saveImageButton.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				Dimension size = workspace.getCanvasSize();
@@ -183,6 +247,15 @@ public class OpenblocksFrame extends JFrame
 		});
 		saveImageButton.setBackground(Color.decode("#FFFFFF"));
 		saveImageButton.setBorder(new RoundedBoarder(5));
+		saveImageButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	saveImageButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        saveImageButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
 
 		buttons.add(newButton);
@@ -197,7 +270,7 @@ public class OpenblocksFrame extends JFrame
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setBackground(Color.decode("#ff6666"));
 		
-		JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website"));
+		final JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website"));
 		websiteButton.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 			    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
@@ -214,6 +287,15 @@ public class OpenblocksFrame extends JFrame
 		});
 		websiteButton.setBackground(Color.decode("#FFFFFF"));
 		websiteButton.setBorder(new RoundedBoarder(5));
+		websiteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	websiteButton.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		        websiteButton.setBackground(Color.decode("#FFFFFF"));
+		    }
+		});
 		
 		JLabel versionLabel = new JLabel("v " + uiMessageBundle.getString("ardublock.ui.version"));
 		
