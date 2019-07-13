@@ -47,6 +47,8 @@ public class OpenblocksFrame extends JFrame
 	/**
 	 * 
 	 */
+	
+	
 	private static final long serialVersionUID = 2841155965906223806L;
 
 	private Context context;
@@ -117,26 +119,32 @@ public class OpenblocksFrame extends JFrame
 		JButton newButton = new JButton(uiMessageBundle.getString("ardublock.ui.new"));
 		newButton.addActionListener(new NewButtonListener(this));
 		newButton.setBackground(Color.decode("#FFFFFF"));
+		newButton.setBorder(new RoundedBoarder(5));
 		
 		JButton saveButton = new JButton(uiMessageBundle.getString("ardublock.ui.save"));
 		saveButton.addActionListener(new SaveButtonListener(this));
 		saveButton.setBackground(Color.decode("#FFFFFF"));
+		saveButton.setBorder(new RoundedBoarder(5));
 		
 		JButton saveAsButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveAs"));
 		saveAsButton.addActionListener(new SaveAsButtonListener(this)); 
 		saveAsButton.setBackground(Color.decode("#FFFFFF"));
+		saveAsButton.setBorder(new RoundedBoarder(5));
 		
 		JButton openButton = new JButton(uiMessageBundle.getString("ardublock.ui.load"));
 		openButton.addActionListener(new OpenButtonListener(this));
 		openButton.setBackground(Color.decode("#FFFFFF"));
+		openButton.setBorder(new RoundedBoarder(5));
 		
 		JButton generateButton = new JButton(uiMessageBundle.getString("ardublock.ui.upload"));
 		generateButton.addActionListener(new GenerateCodeButtonListener(this, context));
 		generateButton.setBackground(Color.decode("#FFFFFF"));
+		generateButton.setBorder(new RoundedBoarder(5));
 		
 		JButton deleteButton = new JButton("Reset");
 		deleteButton.addActionListener(new DeleteButtonListener(this));
 		deleteButton.setBackground(Color.decode("#FFFFFF"));
+		deleteButton.setBorder(new RoundedBoarder(5));
 		
 		JButton serialMonitorButton = new JButton(uiMessageBundle.getString("ardublock.ui.serialMonitor"));
 		serialMonitorButton.addActionListener(new ActionListener () {
@@ -145,6 +153,7 @@ public class OpenblocksFrame extends JFrame
 			}
 		});
 		serialMonitorButton.setBackground(Color.decode("#FFFFFF"));
+		serialMonitorButton.setBorder(new RoundedBoarder(5));
 		
 		JButton saveImageButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveImage"));
 		saveImageButton.addActionListener(new ActionListener () {
@@ -173,6 +182,7 @@ public class OpenblocksFrame extends JFrame
 			}
 		});
 		saveImageButton.setBackground(Color.decode("#FFFFFF"));
+		saveImageButton.setBorder(new RoundedBoarder(5));
 		
 
 		buttons.add(newButton);
@@ -203,6 +213,7 @@ public class OpenblocksFrame extends JFrame
 			}
 		});
 		websiteButton.setBackground(Color.decode("#FFFFFF"));
+		websiteButton.setBorder(new RoundedBoarder(5));
 		
 		JLabel versionLabel = new JLabel("v " + uiMessageBundle.getString("ardublock.ui.version"));
 		
