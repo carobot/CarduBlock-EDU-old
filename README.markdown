@@ -43,6 +43,23 @@ ToDo
 ----
 * Integrate the [scripting engine](http://java.sun.com/developer/technicalArticles/J2SE/Desktop/scripting/) into the language blocks for code generation
 
+Installation Tips
+----
+1. Make sure you have Java 9.0.4 and add it to the path as %JAVA_HOME%
+2. Pull the Cardublock and openblocks from the Carobot github and store it in documents for convinience purposes
+3. Install eclipse IDE and maven.
+4. Add Maven to your path and make sure you can access and use it. 
+5. cd into the cardublock folder and run these commands
+	i. mvn validate
+	ii. mvn clean
+	iii. mvn eclipse:clean
+	iv. mvn eclipse:eclipse
+6. after this open the project in eclipse.
+7. make sure that the jdk is selected in the project properties for compilation (you may need to google where to find this)
+8. Next cd into the open blocks folder
+9. Run mvn clean and then mvn install
+10. You should now be ready for compilation
+
 License
 ----
 
