@@ -54,7 +54,7 @@ public class Context
 	private String arduinoVersionString = ARDUINO_VERSION_UNKNOWN;
 	private OsType osType; 
 
-	final public static String APP_NAME = "CarduBlock- Edu V2";
+	final public static String APP_NAME = "CarduBlock- Edu 1.0";
 	
 	private Editor editor;
 	

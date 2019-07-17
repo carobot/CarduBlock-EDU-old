@@ -123,7 +123,7 @@ public class OpenblocksFrame extends JFrame
 		newButton.setBorder(new RoundedBoarder(5));
 		newButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	newButton.setBackground(Color.GREEN);
+		    	newButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -137,7 +137,7 @@ public class OpenblocksFrame extends JFrame
 		saveButton.setBorder(new RoundedBoarder(5));
 		saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	saveButton.setBackground(Color.GREEN);
+		    	saveButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -151,7 +151,7 @@ public class OpenblocksFrame extends JFrame
 		saveAsButton.setBorder(new RoundedBoarder(5));
 		saveAsButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	saveAsButton.setBackground(Color.GREEN);
+		    	saveAsButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -165,7 +165,7 @@ public class OpenblocksFrame extends JFrame
 		openButton.setBorder(new RoundedBoarder(5));
 		openButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	openButton.setBackground(Color.GREEN);
+		    	openButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -179,7 +179,7 @@ public class OpenblocksFrame extends JFrame
 		generateButton.setBorder(new RoundedBoarder(5));
 		generateButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	generateButton.setBackground(Color.GREEN);
+		    	generateButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -193,7 +193,7 @@ public class OpenblocksFrame extends JFrame
 		deleteButton.setBorder(new RoundedBoarder(5));
 		deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	deleteButton.setBackground(Color.GREEN);
+		    	deleteButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -211,7 +211,7 @@ public class OpenblocksFrame extends JFrame
 		serialMonitorButton.setBorder(new RoundedBoarder(5));
 		serialMonitorButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	serialMonitorButton.setBackground(Color.GREEN);
+		    	serialMonitorButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -249,7 +249,7 @@ public class OpenblocksFrame extends JFrame
 		saveImageButton.setBorder(new RoundedBoarder(5));
 		saveImageButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	saveImageButton.setBackground(Color.GREEN);
+		    	saveImageButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -289,7 +289,7 @@ public class OpenblocksFrame extends JFrame
 		websiteButton.setBorder(new RoundedBoarder(5));
 		websiteButton.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	websiteButton.setBackground(Color.GREEN);
+		    	websiteButton.setBackground(Color.decode("#90EE90"));
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -297,7 +297,8 @@ public class OpenblocksFrame extends JFrame
 		    }
 		});
 		
-		JLabel versionLabel = new JLabel("v " + uiMessageBundle.getString("ardublock.ui.version"));
+		//Update version everytime it is changed 
+		JLabel versionLabel = new JLabel("Carobot Version: 1.0");
 		
 		bottomPanel.add(saveImageButton);
 		bottomPanel.add(websiteButton);
