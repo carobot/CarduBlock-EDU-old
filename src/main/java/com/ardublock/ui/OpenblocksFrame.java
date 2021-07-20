@@ -277,7 +277,7 @@ public class OpenblocksFrame extends JFrame
 			    URL url;
 			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
 			        try {
-						url = new URL("http://www.carobot.org/swisscheese");
+						url = new URL("https://www.carobot.org/products/carobot-swisscheese/");
 			            desktop.browse(url.toURI());
 			        } catch (Exception e1) {
 			            e1.printStackTrace();
